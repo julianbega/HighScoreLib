@@ -22,12 +22,22 @@ namespace HighscoreBega
 		{
 			if (Score[i] < score)
 			{
-				
+				if (i == Size - 1)
+				{
+					Score[i] = score;
+					Players[i] = player;
+				}
+				else
+				{
+					ScoreAux = Score[i];
+					PlayerAux = Players[i];
+					Score[i] = score;
+					Players[i] = player;
+					Score[i+1] = ScoreAux;
+					Players[i+1] = PlayerAux;
+				}
 			}
-			else if (Score[i] < score)
-			{
-				
-			}
+			
 		}
 	}
 	int Highscore::GetScore(int pos) 
